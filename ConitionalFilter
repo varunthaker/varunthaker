@@ -1,0 +1,19 @@
+import numpy as np
+import pandas as pd
+import os
+
+df = pd.read_csv('tips.csv')
+
+#print(df.head())
+
+
+'Single condition'
+#print(df[df['sex'] == 'Male'])
+
+'Multiple conditions'
+#print(df[(df['total_bill'] > 40) &  (df['sex'] == 'Male')])
+
+#print(df[(df['day'] == 'Sun') | (df['day'] == 'Sat')])
+
+'Multi conditions with multiple inputs'
+print(df[df['day'].isin(['Sun', 'Mon', 'Sat'])])
