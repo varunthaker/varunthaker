@@ -1,0 +1,50 @@
+import numpy as np
+import pandas as pd
+import os
+
+
+'''
+
+np.random.seed(101)
+mydata = np.random.randint(0, 101, (4, 3))
+# print(mydata)
+
+myrow = ['CA', 'NY', 'AZ', 'TX']
+mycolumn = ['Jan', 'Feb', 'Mar']
+
+df = pd.DataFrame(mydata, myrow, mycolumn)
+
+print(df)
+'''
+
+df = pd.read_csv('tips.csv')
+
+#print(df)
+#print(df.columns)
+#print(df.index)
+#print(df.head())
+#print(df.tail(2))
+#print(df.info())
+
+
+#print(df.info())
+
+#print(df.index)
+#print(df.columns)
+
+df = df.set_index('Payment ID')
+
+#print(df.head())
+
+#print(df.iloc[0:4])
+#print(df.loc[['Sun2959','Sun5260']])
+
+df = df.drop('Sun2959', axis = 0)
+
+#print(df.head())
+
+one_row = df.iloc[0]
+print(one_row)
+df= df.append(one_row)
+
+print(df.head())
