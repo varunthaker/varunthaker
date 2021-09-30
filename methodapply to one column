@@ -1,0 +1,33 @@
+import numpy as np
+import pandas as pd
+import os
+
+#Reading CSV file 
+df = pd.read_csv('tips.csv')
+
+#printing head of data 
+print(df.head())
+
+'''
+def last_four(num):
+    return str(num)[-4:]
+
+print(last_four(239435674))
+'''
+
+#getting last four digit in card number
+df['last_four'] = df['CC Number'].apply(last_four)
+
+df['tip %'] = 100 * df['tip'] / df['total_bill']
+
+#function to write the catagories
+def yelp(price):
+    if price < 5:
+        return '$'
+    elif price >=5 and price < 25:
+        return'$$'
+    else:
+        return'$$$'
+
+#applying .apply method with creation of new yelp column
+#df['yelp'] = df['tip %'].apply(yelp)
