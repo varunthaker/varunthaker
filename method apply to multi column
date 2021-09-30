@@ -1,0 +1,30 @@
+import numpy as np
+import pandas as pd
+import os
+
+df = pd.read_csv('tips.csv')
+
+#print(df.head())
+
+lambda num: num*2
+
+#print(simple(3))
+
+'''
+df['total_bill'].apply(lambda num: num*2)
+
+print(df)
+'''
+def quality(total_bill, tip):
+    if tip/total_bill > 0.25:
+        return 'Gen'
+    else:
+        return 'other'
+
+#print(quality(2,5))
+
+df['quality'] = df[['total_bill', 'tip']].apply(lambda df: quality(df['total_bill'], df['tip']),axis = 1)
+
+df['quality'] = np.vectorize(quality)(df['total_bill'], df['tip'])
+
+print(df.head(3))
