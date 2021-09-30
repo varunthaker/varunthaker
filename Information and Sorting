@@ -1,0 +1,51 @@
+import numpy as np
+import pandas as pd
+import os
+
+df = pd.read_csv('tips.csv')
+
+'To transpose'
+#print(df.transpose())
+
+'For statistic analysis'
+#print(df.describe())
+
+'Sort one column'
+#print(df.sort_values(['tip'], ascending=True))
+
+'Sort multiple column'
+#print(df.sort_values(['size' , 'tip', 'total_bill'], ascending=True))
+
+'Index of max/min total bil'
+#print(df['total_bill'])
+#print(df['total_bill'].max())
+#print(df['total_bill'].idxmax())
+#print(df.iloc[170])
+
+'Finding the count'
+#print(df['sex'].value_counts())
+#print(df['day'].unique())
+
+'replace the data'
+#print(df['sex'].replace(['Male','Female'], ['M', 'F']))
+
+'replace the data with map or dictionary'
+#mymap = {'Female': 'F', 'Male': 'M'}
+#print(df['sex'].map(mymap))
+
+'Finding duplicate and dropping'
+#print(df.duplicated())
+#s_df = pd.DataFrame([1, 2 ,3, 3 ], ['a','b','c','d'])
+#print(s_df)
+#print(s_df.duplicated())
+#print(s_df.drop_duplicates())
+
+'Between two values methods'
+#print(df[df['total_bill'].between(10,20,inclusive = False)])
+
+'Largest and smallest'
+#print(df.nlargest(2,'total_bill'))
+#print(df.sort_values('total_bill', ascending=False).iloc[0:2])
+
+'Sample Rows or column'
+print(df.sample(frac=1))
