@@ -1,0 +1,40 @@
+import numpy as np
+import pandas as pd
+import os
+
+df = pd.read_csv('mpg.csv')
+
+#print(df)
+
+#print(df.columns)
+
+'grouping the data (modelyear) with mean'
+#print(df.groupby('model_year').mean()['mpg'])
+
+'Grouping with multiple column'
+#print(df.groupby(['model_year', 'cylinders']).mean())
+
+'Getting index for multiple sorting'
+year_cyl = df.groupby(['model_year', 'cylinders']).mean()
+#print(year_cyl.index.levels)
+
+'getting particular outer index'
+#print(year_cyl.loc[[70,80]])
+
+'getting particular outer and inner index (exact)'
+#print(year_cyl.loc[(70,4)])
+
+
+'Multi-level index'
+#print(year_cyl.xs(key = 4, level = 'cylinders'))
+#print(year_cyl.xs(key = 70, level = 'model_year'))
+
+x = df[df['cylinders'].isin([6,8])].groupby(['model_year', 'cylinders']).mean()
+#print(x)
+
+'Sorting the data and groupby'
+#print(year_cyl.sort_index(level = 'model_year', ascending= False))
+
+'Aggregate function'
+#print(df.agg(['mean', 'std'])['mpg'])
+#print(df.agg({'mpg': ['mean','max'], 'weight':['mean', 'std']}))
