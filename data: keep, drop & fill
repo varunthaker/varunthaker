@@ -1,0 +1,35 @@
+import numpy as np
+import pandas as pd
+import os
+
+#print(np.nan)
+#print(pd.NaT)
+
+df =pd.read_csv('movie_scores.csv')
+
+#print(df.head())
+
+'Value is not available'
+#print(df.isnull())
+
+'Value is available'
+#print(df.notnull())
+
+'One operation on data frame'
+#print(df[df['first_name'].notnull()])
+
+'Operations'
+
+'Operation 1: Keep data or print data'
+#print(df)
+
+'Operation 2: drop data '
+'Drop all NaN value'
+#print(df.dropna())
+
+'Drop with number of Nan value'
+#print(df.dropna(axis=0, subset= ['first_name', 'pre_movie_score', 'post_movie_score'],thresh=2))
+
+'Operation 3: Fill data'
+'add min value in column '
+#print(df['pre_movie_score'].fillna(df['pre_movie_score'].min()))
