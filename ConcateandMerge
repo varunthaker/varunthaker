@@ -1,0 +1,62 @@
+import numpy as np
+import pandas as pd
+import os
+
+#df = pd.read_csv('mpg.csv')
+
+data_one = {'A' : ['A0', 'A1', 'A2', 'A3'], 'B': ['B0', 'B1', 'B2', 'B3']}
+data_two = {'C' : ['C0', 'C1', 'C2', 'C3'], 'D': ['D0', 'D1', 'D2', 'D3']}
+
+one = pd.DataFrame(data_one)
+two = pd.DataFrame(data_two)
+
+#print(one)
+#print(two)
+
+#print(pd.concat([one, two], axis = 0 ))
+
+'Concatination of Data'
+#print(pd.concat([one, two], axis = 1 ))
+one.index = two.index
+
+#print(two)
+#print(pd.concat([one, two], axis = 1 ))
+
+
+'Merging a data frame'
+registrations = pd.DataFrame({'reg_id':[1,2,3,4],'name':['Andrew','Bobo','Claire','David']})
+logins = pd.DataFrame({'log_id':[1,2,3,4],'name':['Xavier','Andrew','Yolanda','Bobo']})
+
+#print(registrations)
+#print(logins)
+
+'Inner merge'
+x = pd.merge(registrations, logins, how = 'inner', on ='name')
+#print(x)
+
+'Left merge'
+y = pd.merge(left = registrations, right = logins, how = 'left', on ='name')
+#print(y)
+
+'right merge'
+z = pd.merge(left = registrations, right = logins, on ='name')
+#print(z)
+
+'Outer merge'
+m = pd.merge(registrations, logins, how = 'outer', on ='name')
+#print(m)
+
+registrations = registrations.set_index('name')
+#print(registrations)
+#print(pd.merge(left = registrations, right = logins, left_on = 'name', right_on = 'name', how = 'inner'))
+
+registrations = registrations.reset_index()
+#print(registrations)
+
+registrations.columns = ['name', 'id']
+#print(registrations)
+
+logins.columns = ['id','name']
+#print(logins)
+
+#print(pd.merge(registrations, logins, how = 'inner', on = 'name', suffixes = ('reg_', 'log_')))
