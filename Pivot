@@ -1,0 +1,14 @@
+import numpy as np
+import pandas as pd
+import os
+
+df = pd.read_csv('Sales_Funnel_CRM.csv')
+#print(df.head())
+
+#licenses = df[['Contact', 'Product', 'Sale Price', 'Licenses']]
+#print(licenses)
+
+x = pd.pivot_table(data = df, index='Contact', columns= 'Product', values = ['Licenses', 'Sale Price'])
+#print(x)
+
+print(pd.pivot_table(df, index = ['Contact', 'Company'], aggfunc= 'mean',fill_value = 0, values = ['Licenses', 'Sale Price']))
