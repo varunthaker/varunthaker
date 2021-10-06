@@ -1,0 +1,28 @@
+import numpy as np
+import pandas as pd
+import os
+
+#df = pd.read_csv('mpg.csv')
+
+data = pd.Series('F1.01 - 115L - 125W - 1,81m')
+#print(data.split('-'))
+
+names = pd.Series(['Andreas', 'Bobo','Claire','David', '5'])
+#print(names)
+
+'''''
+def cleanup(name):
+    name= name.split(')', expand = 1)
+    return name
+'''''
+
+
+data1 = pd.Series( '(36.00) (6-PACK-KlebC) ælectra Tape Copper (1.00) (00-IN-FTTM) Papierfüllsystem (1.00) (6-PACK-FTT-p) Pack Papier)')
+
+data1 = data1.str.replace(')', '', regex = 0)
+data1 = data1.str.split('(', expand = True)
+
+#data1 = data1.str.strip()
+
+'To check the column'
+print(data1.transpose())
