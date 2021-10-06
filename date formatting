@@ -1,0 +1,37 @@
+import numpy as np
+import pandas as pd
+import os
+from datetime import datetime
+
+#df = pd.read_csv('mpg.csv')
+
+myyear = 2015
+mymonth = 1
+myday = 1
+myhour = 2
+mymin = 30
+mysec = 25
+
+mydate = datetime(myyear,mymonth,myday,myhour,mymin,mysec)
+
+#print('my date is', mydate)
+#print(mydate.time())
+
+
+style_date = '12--Dec--2000'
+#print(pd.to_datetime(style_date,format = '%d--%b--%Y'))
+
+sales = pd.read_csv('RetailSales_BeerWineLiquor.csv')
+#print(sales.head())
+
+'To get the data as a date'
+sales['DATE'] = pd.to_datetime(sales['DATE'])
+#print(sales['DATE'][1].month)
+
+'Alternative to get data as a date'
+sales = pd.read_csv('RetailSales_BeerWineLiquor.csv',parse_dates = [0])
+#print(sales['DATE'])
+
+#sales = sales.set_index('DATE')
+print(sales['DATE'].dt.month)
+
