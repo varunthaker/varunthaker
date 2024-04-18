@@ -6,9 +6,9 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=varunthaker&label=Profile%20views&color=0e75b6&style=flat" alt="varunthaker" /> </p>
 
-- 🌱 I’m currently looking for **Web Development Roles**
+- 🌱 I’m currently working with **AIIO company**
 
-- 💬 Ask me about **Next, React, JavaScript, Typescript, HTML, CSS and Web development**
+- 💬 Ask me about **Python, Django, Next, React, JavaScript, Typescript, HTML, CSS and Web development**
 
 - 📫 How to reach me **vthakar3@gmail.com**
 
